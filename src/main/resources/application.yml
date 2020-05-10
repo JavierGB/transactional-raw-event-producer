@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        supplier-out-0:
+          destination: raw-event
+      kafka:
+        binder:
+          transaction:
+            transaction-id-prefix: must-be-unique-id-per-instance-
+            producer:
+              configuration:
+                retries: 1
+                acks: all
+
